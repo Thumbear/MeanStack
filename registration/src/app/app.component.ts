@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {Post} from './post/post.model';  
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'registration';
+  Storedposts : Post[] = [];  
+  
+  onPostAdded(post){  
+    this.Storedposts.push(post);  
+  }  
 }

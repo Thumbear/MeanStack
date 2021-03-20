@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import {FormControl, Validators} from '@angular/forms';
+import { Post } from '../post.model';
 
 @Component({
     selector: 'app-post-create',
@@ -10,9 +11,9 @@ import {FormControl, Validators} from '@angular/forms';
 export class PostCreateComponent {  
     enteredTitle = '';  
     enteredContent = '';  
-    @Output() postCreated = new EventEmitter();
+    @Output() postCreated = new EventEmitter<Post>();  
     onAddPost(){  
-        const post : any = {  
+        const post = {  
           title: this.enteredTitle,  
           content: this.enteredContent  
         };

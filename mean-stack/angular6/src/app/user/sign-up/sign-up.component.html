@@ -1,0 +1,20 @@
+<form #signUpForm="ngForm">
+    <input type="text" #fullname="ngModel" [(ngModel)]="userService.selectedUser.fullname" name="fullname" placeholder="Full Name" required [ngClass]="{'invalid-textbox' : signUpForm.submitted && !fullname.valid}">
+    <div *ngIf="signUpForm.submitted && !fullname.valid">This Field is Required</div>
+    <br>
+    <input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email" required [pattern]="emailRegex" [ngClass]="{'invalid-textbox' : signUpForm.submitted && !email.valid}">
+    <div *ngIf="signUpForm.submitted && email.errors">invalid email</div>
+    <br>
+    <input type="text" #username="ngModel" [(ngModel)]="userService.selectedUser.username" name="username" placeholder="username" required>
+    <br>
+    <input type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="password" minlength="5" required [ngClass]="{'invalid-textbox' : signUpForm.submitted && !password.valid}">
+    <div *ngIf="signUpForm.submitted && password.errors">your format password false, min lenght id 5 character</div>
+    <br>
+    <input type="text" #nohp="ngModel" [(ngModel)]="userService.selectedUser.nohp" name="nohp" placeholder="No HP" required>
+    <br>
+    <input type="text" #alamat="ngModel" [(ngModel)]="userService.selectedUser.alamat" name="alamat" placeholder="Alamat" required>
+    <br>
+    <input type="submit" value="Sign up">
+</form>
+<div class="success" *ngIf="showSuccessMessage">Saved successfully</div>
+<div class="alert" *ngIf="ServerErrorMessages">{{ ServerErrorMessages }}</div>

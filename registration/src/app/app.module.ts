@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from "./header/header.component";
 import { PostListComponent } from "./post/post-list/post-list.component";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { CdkAccordion } from '@angular/cdk/accordion';
 
 
 
@@ -34,6 +35,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatToolbarModule,
     MatExpansionModule,
   ],
+  schemas: CUSTOM_ELEMENTS_SCHEMA,
   providers: [],
   bootstrap: [AppComponent]
 })
